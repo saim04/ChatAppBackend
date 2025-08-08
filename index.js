@@ -18,8 +18,10 @@ app.use(
     credentials: true, // allow cookies/auth headers
   })
 );
-app.use(express.json());
+
 app.use(cookieParser());
+app.use(express.json());
+
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/messages", require("./routes/messageRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
