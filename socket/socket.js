@@ -9,7 +9,10 @@ const server = http.createServer(app);
 const userSocketMap = {};
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: [
+      "http://localhost:5173",
+      "https://mern-chat-app-lake-one.vercel.app",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },

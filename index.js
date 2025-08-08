@@ -7,7 +7,17 @@ const { app, server } = require("./socket/socket");
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://mern-chat-app-lake-one.vercel.app",
+];
 
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, // allow cookies/auth headers
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", require("./routes/authRoutes"));
