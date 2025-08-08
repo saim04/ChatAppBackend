@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const connectToMongo = require("./config/connectToMongo");
 const cookieParser = require("cookie-parser");
 const { app, server } = require("./socket/socket");
-
+const cors = require("cors");
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
